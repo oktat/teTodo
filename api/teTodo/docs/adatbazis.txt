@@ -1,0 +1,12 @@
+todos
+  id int
+  task text - cím
+  deadline - date - határidő
+  complete - boolean - kész
+
+users
+  id
+  username
+  password
+  created_at
+  updated_at
