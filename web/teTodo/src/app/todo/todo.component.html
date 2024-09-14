@@ -1,0 +1,87 @@
+<h2>Tennivalók</h2>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Hozzáad
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="addTodoForm" id="addForm"
+        (ngSubmit)="addTodo()">
+          <div class="form-group">
+            <label for="task">Feladat</label>
+            <input type="text" class="form-control" name="task"
+            formControlName="task">
+          </div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary"
+        data-bs-dismiss="modal"
+        form="addForm">Mentés</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+
+
+
+
+<form [formGroup]="todoForm">
+<table class="table table-striped mt-3">
+  <thead>
+    <th>Id</th>
+    <th>Feladat</th>
+    <th>Complete</th>
+    <th>Visible</th>
+  </thead>
+  <tbody>
+    @for(task of tasks; track task.id) {
+      @if(task.visible == 1) {
+        <tr>
+          <td>{{ task.id }}</td>
+          <td>{{ task.task }}</td>
+          <td>
+            <input type="checkbox" 
+            name="complete"
+            [checked]="task.complete"
+            class="form-check-input"
+            (change)="onChange(task.id)"
+            formControlName="complete"
+            >
+          </td>
+          
+          <td>
+            <button class="btn btn-danger"
+            (click)="onHide(task.id)">Rejt</button>
+            {{ task.visible }}
+          </td>     
+          
+        </tr>
+      }
+    }
+  </tbody>
+</table>
+
+</form>

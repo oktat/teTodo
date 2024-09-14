@@ -2,6 +2,7 @@
     "require": {
         "leafs/leaf": "^3.6",
         "leafs/db": "^2.2",
-        "leafs/auth": "^2.4"
+        "leafs/auth": "^2.4",
+        "leafs/cors": "^1.1"
     }
 }

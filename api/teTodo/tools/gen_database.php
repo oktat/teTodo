@@ -9,8 +9,10 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS todos (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 task TEXT NOT NULL,
-                deadline DATETIME,
-                complet BOOLEAN NOT NULL DEFAULT 0
+                complete BOOLEAN NOT NULL DEFAULT 0,
+                visible BOOLEAN NOT NULL DEFAULT 1,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )";
     
     $db->exec($sql);

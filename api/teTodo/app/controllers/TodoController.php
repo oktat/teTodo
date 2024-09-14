@@ -40,4 +40,28 @@ class TodoController {
     ->execute();
     response()->json($res);
   }
+
+  public function complete($id) {
+    $actTodo = db()->select('todos')->where('id', $id)->first();
+
+    db()
+    ->update('todos')
+    ->params(['complete' => $actTodo['complete'] == 0 ? 1 : 0])
+    ->where('id', $id)
+    ->execute();
+    $todo = db()->select('todos')->where('id', $id)->first();
+    response()->json($todo);
+  }
+
+  public function visible($id) {
+    $actTodo = db()->select('todos')->where('id', $id)->first();
+
+    db()
+    ->update('todos')
+    ->params(['visible' => 0])
+    ->where('id', $id)
+    ->execute();
+    $todo = db()->select('todos')->where('id', $id)->first();
+    response()->json($todo);
+  }
 }

@@ -1,0 +1,24 @@
+<div class="container">
+  <nav>
+    <ul class="nav nav-tabs">
+      @if(!logedIn) {
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link">Belépés</a>
+        </li>
+      }@else {
+        <li class="nav-item">
+          <a routerLink="/todo" class="nav-link">Todo</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/logout" class="nav-link"
+            (click)="logout()">Kilépés</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/register" class="nav-link">Regisztrálás</a>
+        </li>
+      }
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+  
+</div>

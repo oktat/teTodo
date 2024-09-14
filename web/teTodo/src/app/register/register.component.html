@@ -1,0 +1,18 @@
+<h2>Regisztráció</h2>
+<form [formGroup]="registerForm" (ngSubmit)="regsiter()">
+
+  <div class="form-group">
+    <label for="username">Felhasználónev</label>
+    <input type="text" class="form-control" name="username" formControlName="username">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Jelszó</label>
+    <input type="text" class="form-control" name="password" formControlName="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Regisztráció</button>
+    
+</form>
+
+
